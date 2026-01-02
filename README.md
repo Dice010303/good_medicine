@@ -19,6 +19,8 @@ Backend: FastAPI (Python 3.12+)
 
 📂 Project Structure (Day 2 기준)
 
+## 📂 Project Structure (Day 2 기준)
+```
 good_medicine/
 ├── android/                # 안드로이드 네이티브 설정 및 권한
 │   └── app/src/main/AndroidManifest.xml
