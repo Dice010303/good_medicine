@@ -18,20 +18,26 @@ Libraries: camera, google_mlkit_text_recognition, permission_handler
 Backend: FastAPI (Python 3.12+)
 
 📂 Project Structure (Day 2 기준)
-Plaintext
 
 good_medicine/
-├── android/            # 안드로이드 네이티브 설정 (카메라 권한 등)
-├── ios/                # iOS 네이티브 설정
-├── lib/                # Flutter App Source Code
-│   ├── main.dart       # 앱 진입점 (Theme & RootTab 연결)
+├── android/                # 안드로이드 네이티브 설정 및 권한
+│   └── app/src/main/AndroidManifest.xml
+├── ios/                    # iOS 네이티브 설정 및 권한
+├── lib/                    # Flutter 메인 소스 코드
+│   ├── main.dart           # 앱 진입점 및 테마 설정
 │   └── src/
-│       ├── app/        # 전역 네비게이션 설정 (root_tab.dart)
-│       ├── models/     # 데이터 모델 (PillModel 등)
-│       ├── viewmodels/ # 상태 관리 로직 (3일차 예정)
-│       ├── views/      # UI 화면 (HomeView, ScanView 구현 완료)
-│       ├── services/   # OCR 및 API 서비스 로직 (3일차 예정)
-│       └── widgets/    # 공통 재사용 위젯
-├── server/             # FastAPI Backend Server (Python)
-│   └── main.py         # 서버 진입점
-└── README.md           # 프로젝트 가이드
+│       ├── app/            # 전역 설정 및 내비게이션
+│       │   └── root_tab.dart
+│       ├── models/         # 데이터 모델 (Pill 등)
+│       ├── viewmodels/     # 상태 관리 로직 (3일차 예정)
+│       ├── views/          # UI 화면
+│       │   ├── home_view.dart
+│       │   └── scan_view.dart
+│       ├── services/       # OCR 및 외부 API 서비스
+│       └── widgets/        # 공통 재사용 위젯
+├── server/                 # FastAPI 백엔드 서버
+│   ├── main.py             # 서버 진입점
+│   └── requirements.txt    # 파이썬 의존성 관리
+├── assets/                 # 이미지 및 폰트 리소스
+├── pubspec.yaml            # 플러터 패키지 관리
+└── README.md               # 프로젝트 가이드라인
