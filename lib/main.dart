@@ -1,5 +1,5 @@
-// lib/main.dart
 import 'package:flutter/material.dart';
+import 'src/views/root_tab.dart';
 
 void main() {
   runApp(const GoodMedicineApp());
@@ -12,46 +12,21 @@ class GoodMedicineApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Good Medicine',
-      // 디버그 배너(우측 상단 띠) 제거
       debugShowCheckedModeBanner: false,
-      
-      // 앱 전체 테마 설정
+
       theme: ThemeData(
         useMaterial3: true,
-        // 의료 앱에 어울리는 민트/그린 계열 색상 (안정, 치유)
+        // SeedColor를 통해 앱 전체의 색상 조화를 자동으로 맞춥니다.
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF00C896), 
+          seedColor: const Color(0xFF007AFF), // 신뢰를 주는 메디컬 블루
           brightness: Brightness.light,
         ),
-        fontFamily: 'Roboto', // 기본 폰트
-        appBarTheme: const AppBarTheme(
-          centerTitle: true,
-          elevation: 0,
-        ),
+        // 전역 텍스트 스타일 설정 (선택 사항)
+        scaffoldBackgroundColor: const Color(0xFFF8F9FA), // 매우 밝은 회색 배경
       ),
-      
-      // 앱 실행 시 첫 화면
-      home: const Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(Icons.local_hospital, size: 80, color: Color(0xFF00C896)),
-              SizedBox(height: 20),
-              Text(
-                'Good Medicine',
-                style: TextStyle(
-                  fontSize: 24, 
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black87
-                ),
-              ),
-              SizedBox(height: 10),
-              Text('구조 및 테마 설정 완료'),
-            ],
-          ),
-        ),
-      ),
+
+      // 2. 진입점 설정: 앱이 켜지자마자 RootTab(하단 바가 있는 화면)을 보여줍니다.
+      home: const RootTab(),
     );
   }
 }
