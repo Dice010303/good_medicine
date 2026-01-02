@@ -15,8 +15,9 @@ class _RootTabState extends State<RootTab> {
 
   // 3. 전환될 화면들을 리스트로 관리 (나중에 실제 View 파일들로 교체 예정)
   final List<Widget> _pages = [
-    const HomeView(),
-    const ScanView(),
+    // const : 컴파일 시점에 메모리에 한번 생성되어 박제 -- 저장값 재사용
+    const HomeView(), // 홈 화면
+    const ScanView(), // 카메라 화면
     const Center(child: Text('내 약 상자 화면 (준비 중)', style: TextStyle(fontSize: 24))),
   ];
 
@@ -37,8 +38,8 @@ class _RootTabState extends State<RootTab> {
             _selectedIndex = index; // 새 번호로 상태 업데이트 -> build 함수 재실행
           });
         },
-        type: BottomNavigationBarType.fixed, // 아이콘 3개 이상일 때 고정 스타일 적용
-        selectedItemColor: Colors.blueAccent, // 병원 앱 느낌의 파란색 (Medical Blue)
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Colors.blueAccent,
         unselectedItemColor: Colors.grey,
         items: const [
           // 7. 각 탭 아이템 선언
